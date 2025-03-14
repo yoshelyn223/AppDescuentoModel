@@ -1,10 +1,9 @@
 package com.example.appdescuentomodel.components
 
-import android.graphics.Color
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ButtonDefaults
@@ -13,23 +12,23 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.KeyboardType
-
 
 @Composable
-fun SpaceH(size: Dp = 5.dp) {
+fun SpaceH(size: Dp = 5.dp){
     Spacer(modifier = Modifier.height(size))
 }
 
 @Composable
-fun MainTextField(value: String, onValueChange: (String) -> Unit, label: String) {
+fun MaintTextField(value:String, onValueChange:(String)->Unit,label:String){
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
-        label = { Text(text = label) },
+        label = {Text(text = label)},
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         modifier = Modifier
             .fillMaxWidth()
@@ -39,13 +38,13 @@ fun MainTextField(value: String, onValueChange: (String) -> Unit, label: String)
 
 @Composable
 fun MainButton(
-    text: String,
+    text:String,
     color: Color = MaterialTheme.colorScheme.primary,
-    onClick: () -> Unit
-) {
+    onClick:()->Unit
+){
     OutlinedButton(
-        onClick = onClick,
-        colors = ButtonDefaults.outlinedButtonColors(
+        onClick = onClick,colors = ButtonDefaults.outlinedButtonColors(
+            contentColor = color,
             containerColor = Color.Transparent
         ),
         modifier = Modifier
@@ -58,18 +57,18 @@ fun MainButton(
 
 @Composable
 fun Alert(
-    title: String,
-    message: String,
-    confirmText: String,
-    onConfirmClick: () -> Unit,
-    onDismissClick: () -> Unit
-) {
+    title:String,
+    message:String,
+    confirmText:String,
+    onConfirmClick:()->Unit,
+    onDismissClick:()->Unit
+){
     AlertDialog(
         onDismissRequest = onDismissClick,
-        title = { Text(text = title) },  // ✅ Corregido "tittle" -> "title"
-        text = { Text(text = message) },  // ✅ Corregido "massage" -> "message"
+        title = {Text(text=title)},
+        text = {Text(text = message)},
         confirmButton = {
-            OutlinedButton(onClick = onConfirmClick) {
+            OutlinedButton(onClick = onConfirmClick){
                 Text(text = confirmText)
             }
         }
