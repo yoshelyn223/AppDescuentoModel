@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 
 
 @Composable
-fun TwoCards(title1: String, number1:Double, number2:Double){
+fun TwoCards(title1: String, number1:Double, title2:String, number2:Double){
     Row(
        modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly)
